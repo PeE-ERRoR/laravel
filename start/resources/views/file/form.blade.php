@@ -7,13 +7,16 @@
             <div class="panel panel-default">
               <div class="card">
                 <div class="card-header">
-                  Featured
+                  Upload File
                 </div>
                 <div class="card-body">
-                  <form class="" action="/file" method="post">
+                  <form class="" action="{{ url('/file') }}" method="post" enctype="multipart/form-data">
+
+                    {{ csrf_field() }}
+
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-                          <input type="file" name="avata" class="file-control" value="">
+                          <input type="file" name="file_name" class="file-control" value="">
                         </li>
                         <li class="list-group-item">
                           <button type="submit" name="button" class="btn btn-success btn-block">save</button>
