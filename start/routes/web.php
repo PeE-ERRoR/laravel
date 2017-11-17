@@ -22,3 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/excel', 'ExcelController@index');
 
 Route::resource('file', 'FileController');
+
+Route::resource('form', 'FormController');
+
+Route::resource('type', 'TypeController');

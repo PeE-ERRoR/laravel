@@ -1,11 +1,12 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
+@import url("https://fonts.googleapis.com/css?family=Miriam+Libre:400,700|Montserrat:400,800i,900");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 // Variables
-// @import "variables";
+@import "variables";
 @import "style";
 
 // Bootstrap
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap";
-@import "node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
