@@ -14,7 +14,11 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $type = Type::All();
+        $data = array(
+          'types' => $type
+        );
+        return view('type/list', $data);
     }
 
     /**
@@ -37,7 +41,7 @@ class TypeController extends Controller
     {
         type::create($request->All());
 
-        return redirect('./form');
+        return redirect('./type');
     }
 
     /**
@@ -82,6 +86,8 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+      $type = Type::find($type->id);
+      $type->delete();
+      return redirect('./type');
     }
 }
