@@ -7,7 +7,7 @@
         Input Form
       </div>
       <div class="card-body">
-        @isset($type)
+        @isset($types)
           <form class="" action="{{ url('/type') }}" method="put" enctype="multipart/form-data">
         @else
           <form class="" action="{{ url('/type') }}" method="post" enctype="multipart/form-data">
@@ -18,7 +18,7 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="">Type Name</label>
-              <input type="text" class="form-control is-valid" name="type_name" id="" placeholder="name" value="{{ $type->type_name or old('type_name') }}" required>
+              <input type="text" class="form-control is-valid" name="type_name" id="" placeholder="name" value="{{ $types->type_name or old('type_name') }}" required>
             </div>
           </div>
 

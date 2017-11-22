@@ -26,3 +26,6 @@ Route::resource('file', 'FileController');
 Route::resource('form', 'FormController');
 
 Route::resource('type', 'TypeController');
+
+Route::get('./status/{type_id}', 'FormController@status');
+Route::get('/statuslist', 'FormController@statusList');

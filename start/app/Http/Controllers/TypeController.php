@@ -52,7 +52,11 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+      $type = Type::find($type->id);
+      $data = array(
+        'types' => $type,
+      );
+      return view('type/view', $data);
     }
 
     /**
@@ -63,7 +67,11 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+      $type = Type::find($type->id);
+      $data = array(
+        'types' => $type,
+      );
+      return view('type/form', $data);
     }
 
     /**

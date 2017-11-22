@@ -8,7 +8,8 @@
       </div>
       <div class="card-body">
         @isset($form)
-          <form class="" action="{{ url('/form') }}" method="put" enctype="multipart/form-data">
+          <form class="" action="{{ url('form/'.$form->id) }}" method="post" enctype="multipart/form-data">
+          {{ method_field('PUT') }}
         @else
           <form class="" action="{{ url('/form') }}" method="post" enctype="multipart/form-data">
         @endif
@@ -18,7 +19,7 @@
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="">Name</label>
-              <input type="text" class="form-control is-valid" name="name" id="" placeholder="name" value="{{ $form->name or old('name') }}" required>
+              <input type="text" class="form-control is-valid" name="name" id="" placeholder="name" value="{{ $form->name or old('name') }}" >
             </div>
             <div class="col-md-6 mb-3">
               <label for="">Last name</label>
@@ -26,15 +27,15 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="">Type</label>
-              <select class="form-control custom-select is-valid" name="type" required>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+              <select class="form-control custom-select is-valid" name="type_id" required>
+                @foreach ($types as $type)
+                  <option value="{{ $type->id }}">{{ $type->type_name }}</option>
+                @endforeach
               </select>
             </div>
             <div class="col-md-6 mb-3">
               <label for="">Date</label>
-              <input type="date" class="form-control is-valid" name="date" id="" placeholder="date" value="{{ $form->name or old('name') }}" required>
+              <input type="date" class="form-control is-valid" name="date" id="" placeholder="date" value="{{ $form->date or old('date') }}" required>
             </div>
           </div>
           <div class="row">

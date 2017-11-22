@@ -37,9 +37,9 @@
           <a href="{{ url('/type') }}" class="btn btn-danger btn-sm float-right"><i class="fa fa-share"></i></a>
         </li>
         <li class="list-group-item">
-          <i class="fa fa-upload"></i>
-          Upload File
-          <a href="{{ url('/file') }}" class="btn btn-danger btn-sm float-right"><i class="fa fa-share"></i></a>
+          <i class="fa fa-search"></i>
+          Select Status
+          <a href="{{ url('/statuslist') }}" class="btn btn-danger btn-sm float-right"><i class="fa fa-share"></i></a>
         </li>
         <li class="list-group-item">
           <i class="fa fa-sticky-note-o"></i>

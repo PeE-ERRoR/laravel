@@ -18,7 +18,7 @@ class CreateFormsTable extends Migration
             $table->string('name', 50);
             $table->integer('status')->default(0);
             $table->timestamp('date');
-            $table->integer('delete')->comment('0=noDelete, 1=dlete');
+            $table->boolean('delete')->comment('true=Delete, false=NoDlete')->default(0);
             $table->timestamps();
         });
     }
