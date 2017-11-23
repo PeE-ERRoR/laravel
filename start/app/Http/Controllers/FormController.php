@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Form;
 use App\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class FormController extends Controller
 {
@@ -115,20 +117,40 @@ class FormController extends Controller
     }
 
     //get by types
-    public function status($type_id)
+    public function listview($id)
     {
-      $form = Form::getByType()->get();
+      $form = Form::getByType($id)->get();
       $data = array(
         'forms' => $form
       );
-      return view('form/viewStatus', $data);
+      return view('./form/list', $data);
     }
 
     public function statusList()
     {
       $data = array(
-        'types' => $this->getType()
+        'types' => $this->getType(),
+        'provinces' => $this->getJson()
       );
       return View('./form/viewStatusList', $data);
+    }
+
+    public function getJson()
+    {
+      // return Storage::get('json/province.json');
+      // $data = array(Storage::get('json/province.json'));
+
+      $json = Storage::disk('local')->get('json/province.json');
+      $json = json_decode($json, true);
+      // echo '<pre>';
+      // print_r($json);
+      // echo '<pre>';
+      // return  response()->json($json)->header('X-Value', 'True');
+      // dd($json);
+      // echo '<pre>';
+      // var_dump($json);
+      // echo '<pre>';
+
+      return $json;
     }
 }

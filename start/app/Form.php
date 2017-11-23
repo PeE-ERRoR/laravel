@@ -32,4 +32,6 @@ class Form extends Model
                 ->select('forms.*', 'types.type_name')
                 ->where('type_id', $type_id);
   }
+  
+
 }

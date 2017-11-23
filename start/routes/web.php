@@ -27,5 +27,6 @@ Route::resource('form', 'FormController');
 
 Route::resource('type', 'TypeController');
 
-Route::get('./status/{type_id}', 'FormController@status');
+Route::get('/listview/{id}', 'FormController@listview');
 Route::get('/statuslist', 'FormController@statusList');
+Route::get('/getJson', 'FormController@getJson');

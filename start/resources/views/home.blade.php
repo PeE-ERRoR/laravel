@@ -42,9 +42,9 @@
           <a href="{{ url('/statuslist') }}" class="btn btn-danger btn-sm float-right"><i class="fa fa-share"></i></a>
         </li>
         <li class="list-group-item">
-          <i class="fa fa-sticky-note-o"></i>
-          Input Form
-          <a href="{{ url('/form') }}" class="btn btn-danger btn-sm float-right"><i class="fa fa-share"></i></a>
+          <i class="fa fa-link"></i>
+          Get JSON
+          <a href="{{ url('/getJson') }}" class="btn btn-danger btn-sm float-right"><i class="fa fa-share"></i></a>
         </li>
       </ul>
     </div>
