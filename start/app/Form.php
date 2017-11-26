@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Cabon;
 class Form extends Model
 {
 
@@ -11,9 +11,22 @@ class Form extends Model
       'name', 'date', 'type_id', 'delete'
   ];
 
+  protected $dates = ['date'];
+
+  // protected $casts = [
+  //   'is_admin' => 'boolean',
+  // ];
+
   //
   const CREATED_AT = 'created_at';
   const UPDATED_AT = 'updated_at';
+
+  //
+  public function setFirstNameAttribute($date)
+  {
+    // $this->attributes['name'] = strtolower($name);
+    $this->attributes['date'] = Cabon::parse($date)->subDay();
+  }
 
   // public function scopeTypeId($query)
   // {
@@ -32,6 +45,6 @@ class Form extends Model
                 ->select('forms.*', 'types.type_name')
                 ->where('type_id', $type_id);
   }
-  
+
 
 }

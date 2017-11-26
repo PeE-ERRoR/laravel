@@ -29,4 +29,3 @@ Route::resource('type', 'TypeController');
 
 Route::get('/listview/{id}', 'FormController@listview');
 Route::get('/statuslist', 'FormController@statusList');
-Route::get('/getJson', 'FormController@getJson');
