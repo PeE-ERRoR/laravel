@@ -29,3 +29,8 @@ Route::resource('type', 'TypeController');
 
 Route::get('/listview/{id}', 'FormController@listview');
 Route::get('/statuslist', 'FormController@statusList');
+
+// เลือกจังหวัด json
+Route::get('/getProvince', 'FormController@getProvince');
+Route::get('/getDistrict/{province}', 'FormController@getDistrict');
+Route::get('/getSubDistrict/{province}', 'FormController@getSubDistrict');

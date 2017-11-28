@@ -45,7 +45,7 @@
             <tr>
               <th scope="row"></th>
               <td>{{ $form->name }}</td>
-              <td>{{ $form->created_at }}</td>
+              <td>{{ $form->date }}</td>
               <td>{{ $form->type_name }}</td>
               <td class="text-right">
                 <form class="" action="" method="delete">

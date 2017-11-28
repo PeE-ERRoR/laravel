@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Cabon;
+use Carbon\Carbon;
 class Form extends Model
 {
 
@@ -21,11 +21,11 @@ class Form extends Model
   const CREATED_AT = 'created_at';
   const UPDATED_AT = 'updated_at';
 
-  //
-  public function setFirstNameAttribute($date)
+  //set ค่า Date คือชื่อ database
+  public function setDateAttribute($date)
   {
     // $this->attributes['name'] = strtolower($name);
-    $this->attributes['date'] = Cabon::parse($date)->subDay();
+    $this->attributes['date'] = Carbon::parse($date)->subDay();
   }
 
   // public function scopeTypeId($query)
@@ -45,6 +45,5 @@ class Form extends Model
                 ->select('forms.*', 'types.type_name')
                 ->where('type_id', $type_id);
   }
-
 
 }

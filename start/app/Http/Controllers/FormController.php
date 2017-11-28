@@ -130,27 +130,49 @@ class FormController extends Controller
     {
       $data = array(
         'types' => $this->getType(),
-        'provinces' => $this->getJson()
+        'provinces' => $this->getProvince()
       );
       return View('./form/viewStatusList', $data);
     }
 
-    public function getJson()
+    public function getProvince()
     {
-      // return Storage::get('json/province.json');
-      // $data = array(Storage::get('json/province.json'));
-
       $json = Storage::disk('local')->get('json/province.json');
       $json = json_decode($json, true);
       // echo '<pre>';
       // print_r($json);
       // echo '<pre>';
-      // return  response()->json($json)->header('X-Value', 'True');
-      // dd($json);
-      // echo '<pre>';
-      // var_dump($json);
-      // echo '<pre>';
-
       return $json;
+    }
+
+    public function getDistrict($province)
+    {
+      $json = Storage::disk('local')->get('json/district.json');
+      $json = json_decode($json, true);
+
+      $data['district'] = array();
+      foreach ($json['district'] as $district) {
+        if ($district['changwat_pid'] == $province) {
+          $data['district'][] = $district;
+        }
+      }
+
+      // echo json_encode($data);
+      return $data;
+    }
+
+    public function getSubDistrict($district)
+    {
+      $json = Storage::disk('local')->get('json/subdistrict.json');
+      $json = json_decode($json, true);
+
+      $data['subdistrict'] = array();
+      foreach ($json['subdistrict'] as $key => $subdistrict) {
+        if ($subdistrict['amphoe_pid'] == $district) {
+          $data['subdistrict'][] = $subdistrict;
+        }
+      }
+
+      return $data;
     }
 }

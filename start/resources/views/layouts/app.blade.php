@@ -79,7 +79,7 @@
 
           </ol>
         </nav>
-        
+
         <div class="row">
 
           @yield('content')
@@ -91,6 +91,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    {{-- script page --}}
+    @stack('scripts')
 
 </body>
 
