@@ -45,6 +45,7 @@ class FileController extends Controller
         // upload
         // $path = $request->file('file_name')->store('image');
         $path = Storage::putFile('image', $request->file('file_name'));
+        // Storage::disk('public')->put('file.txt', 'Contents');
 
         // save path
         $file->file_name = $path;

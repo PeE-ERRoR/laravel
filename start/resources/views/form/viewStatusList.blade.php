@@ -55,7 +55,6 @@
       getDistrict: function(){
         var url = '/getDistrict/'+$("#province").val();
         $.get(BASE_URL+url, function(data, status){
-          console.log(data);
           var STR = '';
           for (a of data.district) {
             STR += '<option value="'+a.pid+'">'+a.name+'</option>';
@@ -67,7 +66,6 @@
       getSubDistrict: function(){
         var url = '/getSubDistrict/'+$("#district").val();
         $.get(BASE_URL+url, function(data, status){
-          console.log(data);
           var STR = '';
           for (a of data.subdistrict) {
             STR += '<option value="'+a.pid+'">'+a.name+'</option>';

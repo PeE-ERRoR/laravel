@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/excel', 'ExcelController@index');
+Route::get('/word', 'ExcelController@word');
 
 Route::resource('file', 'FileController');
 
@@ -32,5 +33,9 @@ Route::get('/statuslist', 'FormController@statusList');
 
 // เลือกจังหวัด json
 Route::get('/getProvince', 'FormController@getProvince');
-Route::get('/getDistrict/{province}', 'FormController@getDistrict');
-Route::get('/getSubDistrict/{province}', 'FormController@getSubDistrict');
+Route::get('/getDistrict/{province}', 'FormController@getDistrict')->where(['province' => '[0-9]+']);
+Route::get('/getSubDistrict/{district}', 'FormController@getSubDistrict')->where(['district' => '[0-9]+']);
+
+Route::get('/boot', 'FormController@boot');
+Route::get('/getFile', 'FormController@getFile');
+Route::get('/user', 'FormController@getAPI');

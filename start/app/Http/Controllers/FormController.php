@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Form;
 use App\Type;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Support\Carbon;
+// API
+use App\User;
+use App\Http\Resources\User as UserResource;
 
 class FormController extends Controller
 {
@@ -15,6 +20,7 @@ class FormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
       // $form = Form::typeid()->get();
@@ -157,7 +163,6 @@ class FormController extends Controller
         }
       }
 
-      // echo json_encode($data);
       return $data;
     }
 
@@ -174,5 +179,15 @@ class FormController extends Controller
       }
 
       return $data;
+    }
+
+    public function getFile()
+    {
+      return $a;
+    }
+
+    public function getAPI()
+    {
+       return new UserResource(User::find(1));
     }
 }

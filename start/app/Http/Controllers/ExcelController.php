@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Maatwebsite\Excel\Facades\Excel;
+use Exception;
 
 class ExcelController extends Controller
 {
@@ -103,5 +104,25 @@ class ExcelController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function Word()
+    {
+      $phpWord = new \PhpOffice\PhpWord\PhpWord();
+
+        $section = $phpWord->addSection();
+
+        $description = "หน้าแรก บทความ อ่านต่อที่";
+
+        // $section->addImage("http://itsolutionstuff.com/frontTheme/images/logo.png");
+        $section->addText($description);
+
+        $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+        try {
+            $objWriter->save(storage_path('helloWorld.docx'));
+        } catch (Exception $e) {
+        }
+
+        return response()->download(storage_path('helloWorld.docx'));
     }
 }
